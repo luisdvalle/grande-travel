@@ -37,7 +37,7 @@ namespace TravelWebApp
 
             app.UseStaticFiles();
             app.UseSession();
-            app.UseIdentity();
+            app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
         }
     }
