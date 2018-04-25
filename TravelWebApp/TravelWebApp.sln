@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelWebApp", "TravelWebApp\TravelWebApp.csproj", "{34B84F08-AB57-4363-91F8-738F15C1CCF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelWebApp", "TravelWebApp\TravelWebApp.csproj", "{34B84F08-AB57-4363-91F8-738F15C1CCF7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{FE6799FE-A822-4710-B06D-4EFCA8FA2282}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataService", "..\DataService\DataService\DataService.csproj", "{8C95127B-3ECB-4D42-B51A-53D6CE70EA55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{34B84F08-AB57-4363-91F8-738F15C1CCF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34B84F08-AB57-4363-91F8-738F15C1CCF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34B84F08-AB57-4363-91F8-738F15C1CCF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C95127B-3ECB-4D42-B51A-53D6CE70EA55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C95127B-3ECB-4D42-B51A-53D6CE70EA55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C95127B-3ECB-4D42-B51A-53D6CE70EA55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C95127B-3ECB-4D42-B51A-53D6CE70EA55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8C95127B-3ECB-4D42-B51A-53D6CE70EA55} = {FE6799FE-A822-4710-B06D-4EFCA8FA2282}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4BD8015A-D234-48AC-8117-D53457D63228}
