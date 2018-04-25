@@ -1,11 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace DataService
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext
     {
     }
 }
