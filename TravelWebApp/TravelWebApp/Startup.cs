@@ -25,6 +25,8 @@ namespace TravelWebApp
                     config.Password.RequireNonAlphanumeric = true;
                 }
             ).AddEntityFrameworkStores<GrandeTravelDbContext>();
+
+            services.AddDbContext<GrandeTravelDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,7 +38,7 @@ namespace TravelWebApp
             }
 
             app.UseStaticFiles();
-            app.UseSession();
+            //app.UseSession();
             app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
         }
