@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataService", "..\DataService\DataService\DataService.csproj", "{8C95127B-3ECB-4D42-B51A-53D6CE70EA55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "..\Models\Models.csproj", "{27CD240F-5591-415B-B482-5ED0502B9E6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +25,17 @@ Global
 		{8C95127B-3ECB-4D42-B51A-53D6CE70EA55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C95127B-3ECB-4D42-B51A-53D6CE70EA55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C95127B-3ECB-4D42-B51A-53D6CE70EA55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27CD240F-5591-415B-B482-5ED0502B9E6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27CD240F-5591-415B-B482-5ED0502B9E6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27CD240F-5591-415B-B482-5ED0502B9E6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27CD240F-5591-415B-B482-5ED0502B9E6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8C95127B-3ECB-4D42-B51A-53D6CE70EA55} = {FE6799FE-A822-4710-B06D-4EFCA8FA2282}
+		{27CD240F-5591-415B-B482-5ED0502B9E6D} = {FE6799FE-A822-4710-B06D-4EFCA8FA2282}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4BD8015A-D234-48AC-8117-D53457D63228}
