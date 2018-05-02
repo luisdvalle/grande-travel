@@ -5,16 +5,16 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace DataService
+namespace TravelWebApp.Services
 {
     public class DataService<T> : IDataService<T> where T : class
     {
-        private AppDbContext _dbContext;
+        private GrandeTravelDbContext _dbContext;
         private DbSet<T> _dbSet;
 
         public DataService()
         {
-            _dbContext = new AppDbContext();
+            _dbContext = new GrandeTravelDbContext();
             _dbSet = _dbContext.Set<T>();
         }
 

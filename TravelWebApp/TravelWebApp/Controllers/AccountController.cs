@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using TravelWebApp.Models;
+using TravelWebApp.Services;
 using TravelWebApp.ViewModels;
 
 namespace TravelWebApp.Controllers
@@ -12,11 +14,17 @@ namespace TravelWebApp.Controllers
     {
         private UserManager<IdentityUser> _userManagerService;
         private SignInManager<IdentityUser> _signInManagerService;
+        private IDataService<Profile> _profileDataService;
 
-        public AccountController(UserManager<IdentityUser> userManagerService, SignInManager<IdentityUser> signInManagerService)
+        public AccountController(
+            UserManager<IdentityUser> userManagerService, 
+            SignInManager<IdentityUser> signInManagerService,
+            IDataService<Profile> profileDataService
+            )
         {
             _userManagerService = userManagerService;
             _signInManagerService = signInManagerService;
+            _profileDataService = profileDataService;
         }
 
         [HttpGet]
@@ -37,7 +45,18 @@ namespace TravelWebApp.Controllers
 
                 if (result.Succeeded)
                 {
-                    // redirect to Homepage.
+                    // Add default Profile.
+                    Profile profile = new Profile
+                    {
+                        FirstName = "Enter your first name",
+                        LastName = "Enter your last name",
+                        Email = vm.Email,
+                        PhoneNumber = "Enter your phone number",
+                        UserId = user.Id
+                    };
+                    _profileDataService.Create(profile);
+
+                    // Redirect to Homepage.
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -96,13 +115,13 @@ namespace TravelWebApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult UpdateDetails()
+        public IActionResult UpdateProfile()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateDetails(AccountUpdateViewModel vm)
+        public async Task<IActionResult> UpdateProfile(AccountUpdateViewModel vm)
         {
             if (ModelState.IsValid)
             {

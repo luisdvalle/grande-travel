@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace DataService
+namespace TravelWebApp.Services
 {
     public interface IDataService<T>
     {

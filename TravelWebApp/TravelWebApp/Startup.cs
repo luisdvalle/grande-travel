@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using TravelWebApp.Models;
 using TravelWebApp.Services;
 
 namespace TravelWebApp
@@ -13,6 +14,7 @@ namespace TravelWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddScoped<IDataService<Profile>, DataService<Profile>>();
             services.AddIdentity<IdentityUser, IdentityRole>
             (
                 config =>
