@@ -14,6 +14,9 @@
             @if (User.Identity.IsAuthenticated)
             {
                 <li>
+                    <a asp-action="AddRole" asp-controller="Account" >Add Role</a>
+                </li>
+                <li>
                     <a asp-action="Logout" asp-controller="Account">Logout</a>
                 </li>
                 <li>

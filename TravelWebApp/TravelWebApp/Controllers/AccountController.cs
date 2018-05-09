@@ -191,5 +191,34 @@ namespace TravelWebApp.Controllers
 
             return View(vm);
         }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult AddRole()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> AddRole(AccountAddRoleViewModel vm)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _roleManagerService.CreateAsync(new IdentityRole(vm.RoleName));
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+            }
+
+            return View(vm);
+        }
     }
 }
