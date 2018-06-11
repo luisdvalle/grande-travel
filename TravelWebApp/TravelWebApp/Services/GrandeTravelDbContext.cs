@@ -7,6 +7,7 @@ namespace TravelWebApp.Services
     public class GrandeTravelDbContext : IdentityDbContext
     {
         public DbSet<Profile> ProfileTbl { get; set; }
+        public DbSet<TravelPackage> TravelPackage { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
