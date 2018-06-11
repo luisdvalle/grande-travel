@@ -2,55 +2,71 @@
 
 <html>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li>
-                <a asp-action="Index" asp-controller="Home">Home</a>
-            </li>
-            @if (User.Identity.IsAuthenticated)
-            {
-                <li>
-                    <a asp-action="Search" asp-controller="TravelPackage">Search Packages</a>
-                </li>
-                if (User.IsInRole("Admin"))
-                {
+    <div class="container-fluid">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Grande Travel - Making your travel spectacular</a>
+                </div>
+                <ul class="nav navbar-nav">
                     <li>
-                        <a asp-action="AddRole" asp-controller="Account">Add Role</a>
+                        <a asp-action="Index" asp-controller="Home">Home</a>
                     </li>
-                }
-                if (User.IsInRole("Provider"))
-                {
                     <li>
-                        <a asp-action="All" asp-controller="TravelPackage">Manage Travel Packages</a>
+                        <a asp-action="Search" asp-controller="TravelPackage">Search Packages</a>
                     </li>
-                }
-                <li>
-                    <a asp-action="Logout" asp-controller="Account">Logout</a>
-                </li>
-                <li>
-                    <a asp-action="UpdateProfile" asp-controller="Account">Update Profile</a>
-                </li>
-                <li>
-                    Welcome @User.Identity.Name
-                </li>
-            }
-            else
-            {
-                <li>
-                    <a asp-action="Register" asp-controller="Account">Register</a>
-                </li>
-                <li>
-                    <a asp-action="Login" asp-controller="Account">Login</a>
-                </li>
-            }
-        </ul>
-    </nav>
-    <div>
-        @RenderBody()
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li>
+                                <a asp-action="AddRole" asp-controller="Account">Add Role</a>
+                            </li>
+                        }
+                        if (User.IsInRole("Provider"))
+                        {
+                            <li>
+                                <a asp-action="All" asp-controller="TravelPackage">Manage Travel Packages</a>
+                            </li>
+                        }
+                        <li>
+                            <a asp-action="UpdateProfile" asp-controller="Account">Update Profile</a>
+                        </li>
+                        <li>
+                            <a asp-action="Logout" asp-controller="Account">Logout</a>
+                        </li>
+                        <li>
+                            <a>Welcome @User.Identity.Name!</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-action="Register" asp-controller="Account">Register</a>
+                        </li>
+                        <li>
+                            <a asp-action="Login" asp-controller="Account">Login</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </nav>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @RenderBody()
+            </div>
+            <footer class="panel-footer">
+                <p>Luis Del Valle - Diploma of Software Engineering. TAFE Petersham</a></p>
+            </footer>
+        </div>
     </div>
 </body>
 </html>

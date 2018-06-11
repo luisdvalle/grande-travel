@@ -5,32 +5,32 @@
 <form method="post">
     <div asp-validation-summary="ModelOnly"></div>
 
-    <div>
+    <div class="form-group">
         <label asp-for="FirstName"></label>
-        <input asp-for="FirstName" />
+        <input class="form-control" asp-for="FirstName" />
         <span asp-validation-for="FirstName"></span>
     </div>
 
-    <div>
+    <div class="form-group">
         <label asp-for="LastName"></label>
-        <input asp-for="LastName" />
+        <input class="form-control" asp-for="LastName" />
         <span asp-validation-for="LastName"></span>
     </div>
 
-    <div>
+    <div class="form-group">
         <label asp-for="Email"></label>
-        <input asp-for="Email" />
+        <input class="form-control" asp-for="Email" />
         <span asp-validation-for="Email"></span>
     </div>
 
-    <div>
+    <div class="form-group">
         <label asp-for="PhoneNumber"></label>
-        <input asp-for="PhoneNumber" />
+        <input class="form-control" asp-for="PhoneNumber" />
         <span asp-validation-for="PhoneNumber"></span>
     </div>
 
     <input type="hidden" asp-for="ProfileId" />
 
-    <input type="submit"  value="Update" />
+    <input class="btn btn-primary" type="submit" value="Update" />
 </form>
 
