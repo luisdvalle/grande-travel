@@ -11,9 +11,10 @@ using TravelWebApp.Services;
 namespace TravelWebApp.Migrations
 {
     [DbContext(typeof(GrandeTravelDbContext))]
-    partial class GrandeTravelDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180609060517_addingTravelPackageTblMigration")]
+    partial class addingTravelPackageTblMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -184,11 +185,9 @@ namespace TravelWebApp.Migrations
                     b.Property<int>("ProfileId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("FirstName")
-                        .IsRequired();
+                    b.Property<string>("FirstName");
 
-                    b.Property<string>("LastName")
-                        .IsRequired();
+                    b.Property<string>("LastName");
 
                     b.Property<string>("UserId");
 
@@ -271,7 +270,7 @@ namespace TravelWebApp.Migrations
 
             modelBuilder.Entity("TravelWebApp.Models.TravelPackage", b =>
                 {
-                    b.HasOne("TravelWebApp.Models.Profile", "Profile")
+                    b.HasOne("TravelWebApp.Models.Profile")
                         .WithMany("TravelPackages")
                         .HasForeignKey("ProfileId")
                         .OnDelete(DeleteBehavior.Cascade);
