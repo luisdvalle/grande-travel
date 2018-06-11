@@ -1,0 +1,31 @@
+﻿@model TravelPackageAllViewModel
+
+<h2>Manage your Travel Packages</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Price</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var package in Model.TravelPackages)
+        {
+            <tr>
+                <td>@package.Name</td>
+                <td>@package.Location</td>
+                <td>@package.Price</td>
+                <td>
+                    @(package.Activated? "Activated" : "Deactivated")
+                </td>
+                <td><a asp-action="Update" asp-controller="TravelPackage" asp-route-id="@package.TravelPackageId">Update</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Add new Travel Package", "Add", "TravelPackage")
+

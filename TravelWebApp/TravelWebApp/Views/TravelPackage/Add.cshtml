@@ -1,0 +1,39 @@
+﻿@model TravelPackageAddViewModel
+
+<h2>Add a Travel Package</h2>
+
+<form asp-action="Add" asp-controller="TravelPackage" method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div>
+        <label asp-for="Name">Package Name</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    <div>
+        <label asp-for="Price">Price $</label>
+        <input asp-for="Price" />
+        <span asp-validation-for="Price"></span>
+    </div>
+
+    <div>
+        <label asp-for="Location"></label>
+        <input asp-for="Location" />
+        <span asp-validation-for="Location"></span>
+    </div>
+
+    <div>
+        <label asp-for="Description"></label>
+        <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+    </div>
+
+    <div>
+        <label asp-for="Activated"></label>
+        <input asp-for="Activated" />
+        <span asp-validation-for="Activated"></span>
+    </div>
+
+    <input type="submit" value="Send" />
+</form>

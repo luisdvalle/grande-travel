@@ -12,5 +12,14 @@ namespace TravelWebApp.Services
         {
             options.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB; Database=GrandeTravelDB; Trusted_Connection=True");
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<Profile>()
+                .HasMany(p => p.TravelPackages)
+                .WithOne(tp => tp.Profile);
+        }
     }
 }

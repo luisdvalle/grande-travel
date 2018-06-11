@@ -14,8 +14,20 @@
             @if (User.Identity.IsAuthenticated)
             {
                 <li>
-                    <a asp-action="AddRole" asp-controller="Account" >Add Role</a>
+                    <a asp-action="Search" asp-controller="TravelPackage">Search Packages</a>
                 </li>
+                if (User.IsInRole("Admin"))
+                {
+                    <li>
+                        <a asp-action="AddRole" asp-controller="Account">Add Role</a>
+                    </li>
+                }
+                if (User.IsInRole("Provider"))
+                {
+                    <li>
+                        <a asp-action="All" asp-controller="TravelPackage">Manage Travel Packages</a>
+                    </li>
+                }
                 <li>
                     <a asp-action="Logout" asp-controller="Account">Logout</a>
                 </li>

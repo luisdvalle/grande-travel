@@ -15,6 +15,7 @@ namespace TravelWebApp
         {
             services.AddMvc();
             services.AddScoped<IDataService<Profile>, DataService<Profile>>();
+            services.AddScoped<IDataService<TravelPackage>, DataService<TravelPackage>>();
             services.AddIdentity<IdentityUser, IdentityRole>
             (
                 config =>
@@ -43,6 +44,9 @@ namespace TravelWebApp
             //app.UseSession();
             app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
+
+            // Call seed.
+            //SeedHelpercs.Seed(app.ApplicationServices).Wait();
         }
     }
 }

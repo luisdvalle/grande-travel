@@ -1,0 +1,59 @@
+﻿@model TravelPackageSearchViewModel
+
+<h2>Search Travel Packages</h2>
+
+<p>Filter your search</p>
+<form asp-action="Search" asp-controller="TravelPackage" method="post">
+    <div>
+        <label asp-for="Location">Location:</label>
+        <input asp-for="Location"/>
+        <span asp-validation-for="Location"></span>
+    </div>
+
+    <div>
+        <label asp-for="MinPrice">Minimum Price:</label>
+        <input asp-for="MinPrice" />
+        <span asp-validation-for="MinPrice"></span>
+    </div>
+
+    <div>
+        <label asp-for="MaxPrice">Maximum Price:</label>
+        <input asp-for="MaxPrice"/>
+        <span asp-validation-for="MaxPrice"></span>
+    </div>
+
+    <div>
+        <label asp-for="Ordered">Order By Price:</label>
+        <input asp-for="Ordered" />
+        <span asp-validation-for="Ordered"></span>
+    </div>
+
+    <input type="submit" value="Filter" />
+</form>
+
+<div>
+    <p>Total Number of packages: @Model.NumTravelPackages</p>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var package in Model.TravelPackages)
+        {
+            <tr>
+                <td>@package.Name</td>
+                <td>@package.Location</td>
+                <td>@package.Price</td>
+                <td>@package.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

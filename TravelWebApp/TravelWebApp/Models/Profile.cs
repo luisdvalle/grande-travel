@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TravelWebApp.Models
 {
@@ -8,7 +8,10 @@ namespace TravelWebApp.Models
     {
         public int ProfileId { get; set; }
         public string UserId { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
+        public ICollection<TravelPackage> TravelPackages { get; set; }
     }
 }
