@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace TravelWebApp.Services
 {
@@ -42,7 +41,7 @@ namespace TravelWebApp.Services
 
         public IEnumerable<T> Query(Expression<Func<T, bool>> predicate)
         {
-            return _dbSet.Where(predicate);
+            return _dbSet.Where(predicate).ToList();
         }
 
         public void Update(T entity)
