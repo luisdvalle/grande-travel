@@ -61,7 +61,7 @@ namespace TravelWebApp.Controllers
 
                 if (!string.IsNullOrEmpty(vm.Location))
                 {
-                    travelPackages = travelPackages.Where(tp => tp.Location == vm.Location).ToList();
+                    travelPackages = travelPackages.Where(tp => tp.Location.ToLower() == vm.Location.ToLower()).ToList();
                 }
 
                 if (vm.Ordered)
