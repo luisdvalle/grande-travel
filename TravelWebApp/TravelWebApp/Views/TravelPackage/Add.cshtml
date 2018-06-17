@@ -1,39 +1,50 @@
 ﻿@model TravelPackageAddViewModel
+<br />
+<br />
 
-<h2>Add a Travel Package</h2>
+<hr class="featurette-divider">
 
-<form asp-action="Add" asp-controller="TravelPackage" method="post">
-    <div asp-validation-summary="ModelOnly"></div>
+<div class="container">
+    <h2>Add a Travel Package</h2>
+    <br />
+    <br />
 
-    <div class="form-group">
-        <label asp-for="Name">Package Name</label>
-        <input class="form-control" asp-for="Name" />
-        <span asp-validation-for="Name"></span>
-    </div>
+    <form asp-action="Add" asp-controller="TravelPackage" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
 
-    <div class="form-group">
-        <label asp-for="Price">Price $</label>
-        <input class="form-control" asp-for="Price" />
-        <span asp-validation-for="Price"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="Name">Package Name</label>
+            <input class="form-control" asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="Location"></label>
-        <input class="form-control" asp-for="Location" />
-        <span asp-validation-for="Location"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="Price">Price $</label>
+            <input class="form-control" asp-for="Price" />
+            <span asp-validation-for="Price"></span>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="Description"></label>
-        <input class="form-control" asp-for="Description" />
-        <span asp-validation-for="Description"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="Location"></label>
+            <input class="form-control" asp-for="Location" />
+            <span asp-validation-for="Location"></span>
+        </div>
 
-    <div class="form-group">
-        <input class="form-check-input" asp-for="Activated" />
-        <label class="form-check-label" asp-for="Activated"></label>
-        <span asp-validation-for="Activated"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input class="form-control" asp-for="Description" />
+            <span asp-validation-for="Description"></span>
+        </div>
 
-    <input class="btn btn-primary" type="submit" value="Send" />
-</form>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" asp-for="Activated" />
+                <label class="form-check-label" asp-for="Activated"></label>
+                <span asp-validation-for="Activated"></span>
+            </div>
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Send" />
+    </form>
+</div>
+<br />

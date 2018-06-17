@@ -1,72 +1,92 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title>@ViewBag.Title</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container-fluid">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Grande Travel - Making your travel spectacular</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a asp-action="Index" asp-controller="Home">Home</a>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Grande Travel - Making your travel spectacular</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-action="Index" asp-controller="Home">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li>
-                        <a asp-action="Search" asp-controller="TravelPackage">Search Packages</a>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Search" asp-controller="TravelPackage">Search Packages</a>
                     </li>
                     @if (User.Identity.IsAuthenticated)
                     {
                         if (User.IsInRole("Admin"))
                         {
-                            <li>
-                                <a asp-action="AddRole" asp-controller="Account">Add Role</a>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="AddRole" asp-controller="Account">Add Role</a>
                             </li>
                         }
                         if (User.IsInRole("Provider"))
                         {
-                            <li>
-                                <a asp-action="All" asp-controller="TravelPackage">Manage Travel Packages</a>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="All" asp-controller="TravelPackage">Manage Travel Packages</a>
                             </li>
                         }
-                        <li>
-                            <a asp-action="UpdateProfile" asp-controller="Account">Update Profile</a>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="UpdateProfile" asp-controller="Account">Update Profile</a>
                         </li>
-                        <li>
-                            <a asp-action="Logout" asp-controller="Account">Logout</a>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Logout" asp-controller="Account">Logout</a>
                         </li>
-                        <li>
-                            <a>Welcome @User.Identity.Name!</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Welcome @User.Identity.Name!</a>
                         </li>
                     }
                     else
                     {
-                        <li>
-                            <a asp-action="Register" asp-controller="Account">Register</a>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Register" asp-controller="Account">Register</a>
                         </li>
-                        <li>
-                            <a asp-action="Login" asp-controller="Account">Login</a>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Login" asp-controller="Account">Login</a>
                         </li>
                     }
                 </ul>
+                <form class="form-inline mt-2 mt-md-0" asp-action="Search" asp-controller="TravelPackage" method="post">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search by Location" aria-label="Search" name="location">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
         </nav>
-        <div class="panel panel-default">
-            <div class="panel-body">
-                @RenderBody()
-            </div>
-            <footer class="panel-footer">
-                <p>Luis Del Valle - Diploma of Software Engineering. TAFE Petersham</a></p>
-            </footer>
+    </header>
+    <main role="main">
+        <div>
+            @RenderBody()
         </div>
-    </div>
+        <hr class="featurette-divider">
+        <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p>
+                &copy; 2018 Grande Travel, Inc. &middot; Luis Del Valle - Diploma of Software Engineering. TAFE Petersham &middot;
+                <a asp-action="Policy" asp-controller="Home">Privacy Policy</a> &middot;
+                <a asp-action="Terms" asp-controller="Home">Terms of Use</a>
+            </p>
+        </footer>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 </html>

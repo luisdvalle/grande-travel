@@ -1,54 +1,60 @@
 ﻿@model TravelPackageSearchViewModel
+<br />
+<br />
 
-<h2>Search Travel Packages</h2>
+<hr class="featurette-divider">
 
-<p>Filter your search</p>
-<form class="form-inline" asp-action="Search" asp-controller="TravelPackage" method="post">
-    <label class="sr-only" asp-for="Location">Location:</label>
-    <input class="form-control mb-2 mr-sm-2" placeholder="Location" asp-for="Location" />
-    <span asp-validation-for="Location"></span>
+<div class="container">
+    <h2>Search Travel Packages</h2>
 
-    <label class="sr-only" asp-for="MinPrice">Minimum Price:</label>
-    <input class="form-control mb-2 mr-sm-2" placeholder="Minimum Price" asp-for="MinPrice" />
-    <span asp-validation-for="MinPrice"></span>
+    <p>Filter your search</p>
+    <form class="form-inline" asp-action="Search" asp-controller="TravelPackage" method="post">
+        <label class="sr-only" asp-for="Location">Location:</label>
+        <input class="form-control mb-2 mr-sm-2" placeholder="Location" asp-for="Location" />
+        <span asp-validation-for="Location"></span>
 
-    <label class="sr-only" asp-for="MaxPrice">Maximum Price:</label>
-    <input class="form-control mb-2 mr-sm-2" placeholder="Maximum Price" asp-for="MaxPrice" />
-    <span asp-validation-for="MaxPrice"></span>
+        <label class="sr-only" asp-for="MinPrice">Minimum Price:</label>
+        <input class="form-control mb-2 mr-sm-2" placeholder="Minimum Price" asp-for="MinPrice" />
+        <span asp-validation-for="MinPrice"></span>
 
-    <div class="form-control mb-2 mr-sm-2">
-        <input class="form-check-input" asp-for="Ordered" />
-        <label class="form-check-label" asp-for="Ordered">Order By Price</label>
-        <span asp-validation-for="Ordered"></span>
+        <label class="sr-only" asp-for="MaxPrice">Maximum Price:</label>
+        <input class="form-control mb-2 mr-sm-2" placeholder="Maximum Price" asp-for="MaxPrice" />
+        <span asp-validation-for="MaxPrice"></span>
+
+        <div class="form-check mb-2 mr-sm-2">
+            <input class="form-check-input" type="checkbox" asp-for="Ordered" />
+            <label class="form-check-label" asp-for="Ordered">Order By Price</label>
+            <span asp-validation-for="Ordered"></span>
+        </div>
+
+        <input class="btn btn-primary mb-2" type="submit" value="Filter" />
+    </form>
+    <br/>
+
+    <div>
+        <p>Total Number of packages: @Model.NumTravelPackages</p>
     </div>
 
-    <input class="btn btn-primary mb-2" type="submit" value="Filter" />
-</form>
-<br/>
-
-<div>
-    <p>Total Number of packages: @Model.NumTravelPackages</p>
-</div>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Location</th>
-            <th scope="col">Price</th>
-            <th scope="col">Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var package in Model.TravelPackages)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td scope="row">@package.Name</td>
-                <td>@package.Location</td>
-                <td>@package.Price</td>
-                <td>@package.Description</td>
+                <th scope="col">Name</th>
+                <th scope="col">Location</th>
+                <th scope="col">Price</th>
+                <th scope="col">Description</th>
             </tr>
-        }
-    </tbody>
-</table>
-
+        </thead>
+        <tbody>
+            @foreach (var package in Model.TravelPackages)
+            {
+                <tr>
+                    <td scope="row">@package.Name</td>
+                    <td>@package.Location</td>
+                    <td>@package.Price</td>
+                    <td>@package.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />

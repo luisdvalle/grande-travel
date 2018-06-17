@@ -1,16 +1,25 @@
 ﻿@model AccountAddRoleViewModel
+<br />
+<br />
 
-<h2>Add Role</h2>
+<hr class="featurette-divider">
 
-<form asp-action="AddRole" asp-controller="Account" method="post">
-    <div asp-validation-summary="ModelOnly"></div>
+<div class="container">
+    <h2>Add Role</h2>
+    <br />
+    <br />
 
-    <div class="form-group">
-        <label asp-for="RoleName"></label>
-        <input asp-for="RoleName" class="form-control"/>
-        <span asp-validation-for="RoleName" ></span>
-    </div>
+    <form asp-action="AddRole" asp-controller="Account" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
 
-    <input class="btn btn-primary" type="submit" value="Add" />
-</form>
+        <div class="form-group">
+            <label asp-for="RoleName"></label>
+            <input asp-for="RoleName" class="form-control" />
+            <span asp-validation-for="RoleName"></span>
+        </div>
 
+        <br />
+        <input class="btn btn-primary" type="submit" value="Add" />
+    </form>
+</div>
+<br />

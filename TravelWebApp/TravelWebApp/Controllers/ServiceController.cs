@@ -28,6 +28,7 @@ namespace TravelWebApp.Controllers
         public IEnumerable<TravelPackageResult> GetAllTravelPackages()
         {
             return _travelPackageDataService.GetAll()
+                .Where(tp => tp.Activated == true)
                 .Select
                 (
                     tp => new TravelPackageResult
@@ -44,8 +45,13 @@ namespace TravelWebApp.Controllers
         [Route("all/filter")]
         public IEnumerable<TravelPackageResult> GetTravelPackage([FromQuery] string location)
         {
+            if (location == null)
+            {
+                return null;
+            }
+
             return _travelPackageDataService.GetAll()
-                .Where(tp => tp.Location.ToLower() == location.ToLower())
+                .Where(tp => tp.Location.ToLower() == location.ToLower() && tp.Activated == true)
                 .Select
                 (
                     tp => new TravelPackageResult

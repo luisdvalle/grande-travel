@@ -1,31 +1,42 @@
 ﻿@model TravelPackageAllViewModel
+<br />
+<br />
 
-<h2>Manage your Travel Packages</h2>
+<hr class="featurette-divider">
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Location</th>
-            <th scope="col">Price</th>
-            <th scope="col">Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var package in Model.TravelPackages)
-        {
+<div class="container">
+
+    <h2>Manage your Travel Packages</h2>
+    <br />
+    <br />
+
+    <table class="table">
+        <thead>
             <tr>
-                <td scope="row">@package.Name</td>
-                <td>@package.Location</td>
-                <td>@package.Price</td>
-                <td>
-                    @(package.Activated? "Activated" : "Deactivated")
-                </td>
-                <td><a asp-action="Update" asp-controller="TravelPackage" asp-route-id="@package.TravelPackageId">Update</a></td>
+                <th scope="col">Name</th>
+                <th scope="col">Location</th>
+                <th scope="col">Price</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var package in Model.TravelPackages)
+            {
+                <tr>
+                    <td scope="row">@package.Name</td>
+                    <td>@package.Location</td>
+                    <td>@package.Price</td>
+                    <td>
+                        @(package.Activated ? "Activated" : "Deactivated")
+                    </td>
+                    <td><a asp-action="Update" asp-controller="TravelPackage" asp-route-id="@package.TravelPackageId">Update</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
 
-@Html.ActionLink("Add new Travel Package", "Add", "TravelPackage")
-
+    @Html.ActionLink("Add new Travel Package", "Add", "TravelPackage")
+</div>
+<br />

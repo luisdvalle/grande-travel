@@ -1,36 +1,45 @@
 ﻿@model AccountUpdateViewModel
+<br />
+<br />
 
-<h2>UpdateProfile</h2>
+<hr class="featurette-divider">
 
-<form method="post">
-    <div asp-validation-summary="ModelOnly"></div>
+<div class="container">
+    <h2>UpdateProfile</h2>
+    <br />
+    <br />
 
-    <div class="form-group">
-        <label asp-for="FirstName"></label>
-        <input class="form-control" asp-for="FirstName" />
-        <span asp-validation-for="FirstName"></span>
-    </div>
+    <form method="post">
+        <div asp-validation-summary="ModelOnly"></div>
 
-    <div class="form-group">
-        <label asp-for="LastName"></label>
-        <input class="form-control" asp-for="LastName" />
-        <span asp-validation-for="LastName"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="FirstName"></label>
+            <input class="form-control" asp-for="FirstName" />
+            <span asp-validation-for="FirstName"></span>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="Email"></label>
-        <input class="form-control" asp-for="Email" />
-        <span asp-validation-for="Email"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="LastName"></label>
+            <input class="form-control" asp-for="LastName" />
+            <span asp-validation-for="LastName"></span>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="PhoneNumber"></label>
-        <input class="form-control" asp-for="PhoneNumber" />
-        <span asp-validation-for="PhoneNumber"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <input class="form-control" asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
 
-    <input type="hidden" asp-for="ProfileId" />
+        <div class="form-group">
+            <label asp-for="PhoneNumber"></label>
+            <input class="form-control" asp-for="PhoneNumber" />
+            <span asp-validation-for="PhoneNumber"></span>
+        </div>
 
-    <input class="btn btn-primary" type="submit" value="Update" />
-</form>
+        <input type="hidden" asp-for="ProfileId" />
 
+        <br />
+        <input class="btn btn-primary" type="submit" value="Update" />
+    </form>
+</div>
+<br />

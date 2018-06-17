@@ -12,5 +12,15 @@ namespace TravelWebApp.Controllers
         {
             return View();
         }
+
+        public IActionResult Policy()
+        {
+            return View();
+        }
+
+        public IActionResult Terms()
+        {
+            return View();
+        }
     }
 }
