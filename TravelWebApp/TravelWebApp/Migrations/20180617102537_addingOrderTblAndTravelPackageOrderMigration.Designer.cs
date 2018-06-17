@@ -11,9 +11,10 @@ using TravelWebApp.Services;
 namespace TravelWebApp.Migrations
 {
     [DbContext(typeof(GrandeTravelDbContext))]
-    partial class GrandeTravelDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180617102537_addingOrderTblAndTravelPackageOrderMigration")]
+    partial class addingOrderTblAndTravelPackageOrderMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

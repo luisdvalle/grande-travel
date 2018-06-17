@@ -13,5 +13,6 @@ namespace TravelWebApp.Models
         [Required]
         public string LastName { get; set; }
         public ICollection<TravelPackage> TravelPackages { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }
