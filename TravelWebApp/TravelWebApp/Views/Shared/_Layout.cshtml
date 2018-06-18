@@ -44,6 +44,12 @@
                                 <a class="nav-link" asp-action="All" asp-controller="TravelPackage">Manage Travel Packages</a>
                             </li>
                         }
+                        if (User.IsInRole("Customer"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="All" asp-controller="Order">Order History</a>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link" asp-action="UpdateProfile" asp-controller="Account">Update Profile</a>
                         </li>

@@ -11,7 +11,7 @@ namespace TravelWebApp.Models
         public string TravelPackageId { get; set; }
         [Required]
         public int ProfileId { get; set; }
-        //public Profile Profile { get; set; }
+        public Profile Profile { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
@@ -22,6 +22,7 @@ namespace TravelWebApp.Models
         public string Description { get; set; }
         [Required]
         public bool Activated { get; set; }
-        public ICollection<TravelPackageOrder> TravelPackageOrders { get; set; }
+        //public ICollection<TravelPackageOrder> TravelPackageOrders { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

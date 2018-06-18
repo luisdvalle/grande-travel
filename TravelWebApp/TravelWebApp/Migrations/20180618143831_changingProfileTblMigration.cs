@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace TravelWebApp.Migrations
 {
-    public partial class updatingRelationshipProfileTravelPackage : Migration
+    public partial class changingProfileTblMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

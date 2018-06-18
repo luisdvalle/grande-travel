@@ -50,7 +50,7 @@ namespace TravelWebApp.Services
                 {
                     IdentityUser tempUser = new IdentityUser("Luis");
                     tempUser.Email = "luis_dvalle@hotmail.com";
-                    await userManager.CreateAsync(tempUser, "SaCaRi20!");
+                    await userManager.CreateAsync(tempUser, "AmIgOs20!");
                     await userManager.AddToRoleAsync(tempUser, "Admin");
 
                     // Add default Profile.
@@ -69,7 +69,7 @@ namespace TravelWebApp.Services
                 {
                     IdentityUser tempUser = new IdentityUser("Alberto");
                     tempUser.Email = "alberto@email.com";
-                    await userManager.CreateAsync(tempUser, "SaCaRi20!");
+                    await userManager.CreateAsync(tempUser, "AmIgOs20!");
                     await userManager.AddToRoleAsync(tempUser, "Customer");
 
                     // Add default Profile.
@@ -88,7 +88,7 @@ namespace TravelWebApp.Services
                 {
                     IdentityUser tempUser = new IdentityUser("Flightcentre");
                     tempUser.Email = "flight.centre@email.com";
-                    await userManager.CreateAsync(tempUser, "SaCaRi20!");
+                    await userManager.CreateAsync(tempUser, "AmIgOs20!");
                     await userManager.AddToRoleAsync(tempUser, "Provider");
 
                     // Add default Profile.

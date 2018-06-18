@@ -5,6 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20180610022455_updatingRelationshipProfileTravelPackage.cs" />
+    <Compile Remove="Migrations\20180610022455_updatingRelationshipProfileTravelPackage.Designer.cs" />
+    <Compile Remove="Migrations\20180617102537_addingOrderTblAndTravelPackageOrderMigration.cs" />
+    <Compile Remove="Migrations\20180617102537_addingOrderTblAndTravelPackageOrderMigration.Designer.cs" />
+    <Compile Remove="Migrations\20180618133025_changingOrderProfileIdTypeMigration.cs" />
+    <Compile Remove="Migrations\20180618133025_changingOrderProfileIdTypeMigration.Designer.cs" />
+    <Compile Remove="Migrations\20180618134334_addingOrderTblAndTravelPackageOrderMigration.cs" />
+    <Compile Remove="Migrations\20180618134334_addingOrderTblAndTravelPackageOrderMigration.Designer.cs" />
+    <Compile Remove="Migrations\20180618134913_addingOrderandTravelPackageOrderMigration.cs" />
+    <Compile Remove="Migrations\20180618134913_addingOrderandTravelPackageOrderMigration.Designer.cs" />
+    <Compile Remove="Migrations\20180618144137_addingTravelPackageOrderMigration.cs" />
+    <Compile Remove="Migrations\20180618144137_addingTravelPackageOrderMigration.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />

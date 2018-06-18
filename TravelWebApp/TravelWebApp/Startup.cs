@@ -16,6 +16,8 @@ namespace TravelWebApp
             services.AddMvc();
             services.AddScoped<IDataService<Profile>, DataService<Profile>>();
             services.AddScoped<IDataService<TravelPackage>, DataService<TravelPackage>>();
+            services.AddScoped<IDataService<Order>, DataService<Order>>();
+            services.AddScoped<IDataService<TravelPackageOrder>, DataService<TravelPackageOrder>>();
             services.AddIdentity<IdentityUser, IdentityRole>
             (
                 config =>

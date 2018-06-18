@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace TravelWebApp.Models
 {
@@ -18,7 +16,8 @@ namespace TravelWebApp.Models
         [Required]
         public double TotalPrice { get; set; }
         [Required]
-        public string ProfileId { get; set; }
-        public ICollection<TravelPackageOrder> TravelPackageOrders { get; set; }
+        public int ProfileId { get; set; }
+        public string TravelPackageId { get; set; }
+        //public ICollection<TravelPackageOrder> TravelPackageOrders { get; set; }
     }
 }

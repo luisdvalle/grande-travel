@@ -11,8 +11,8 @@ using TravelWebApp.Services;
 namespace TravelWebApp.Migrations
 {
     [DbContext(typeof(GrandeTravelDbContext))]
-    [Migration("20180617102537_addingOrderTblAndTravelPackageOrderMigration")]
-    partial class addingOrderTblAndTravelPackageOrderMigration
+    [Migration("20180618141854_addingOrderTblMigration")]
+    partial class addingOrderTblMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -191,16 +191,13 @@ namespace TravelWebApp.Migrations
 
                     b.Property<DateTime>("OrderDate");
 
-                    b.Property<string>("ProfileId")
-                        .IsRequired();
-
-                    b.Property<int?>("ProfileId1");
+                    b.Property<int>("ProfileId");
 
                     b.Property<double>("TotalPrice");
 
                     b.HasKey("OrderId");
 
-                    b.HasIndex("ProfileId1");
+                    b.HasIndex("ProfileId");
 
                     b.ToTable("Order");
                 });
@@ -248,19 +245,6 @@ namespace TravelWebApp.Migrations
                     b.HasIndex("ProfileId");
 
                     b.ToTable("TravelPackage");
-                });
-
-            modelBuilder.Entity("TravelWebApp.Models.TravelPackageOrder", b =>
-                {
-                    b.Property<string>("TravelPackageId");
-
-                    b.Property<int>("OrderId");
-
-                    b.HasKey("TravelPackageId", "OrderId");
-
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("TravelPackageOrder");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -312,7 +296,8 @@ namespace TravelWebApp.Migrations
                 {
                     b.HasOne("TravelWebApp.Models.Profile")
                         .WithMany("Orders")
-                        .HasForeignKey("ProfileId1");
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("TravelWebApp.Models.TravelPackage", b =>
@@ -320,19 +305,6 @@ namespace TravelWebApp.Migrations
                     b.HasOne("TravelWebApp.Models.Profile")
                         .WithMany("TravelPackages")
                         .HasForeignKey("ProfileId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TravelWebApp.Models.TravelPackageOrder", b =>
-                {
-                    b.HasOne("TravelWebApp.Models.Order", "Order")
-                        .WithMany("TravelPackageOrders")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TravelWebApp.Models.TravelPackage", "TravelPackage")
-                        .WithMany("TravelPackageOrders")
-                        .HasForeignKey("TravelPackageId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

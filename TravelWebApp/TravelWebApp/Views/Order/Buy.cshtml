@@ -1,0 +1,53 @@
+﻿@model OrderBuyViewModel
+<br />
+<br />
+<hr class="featurette-divider">
+
+<div class="container">
+    <h2>Place Order</h2>
+    <br />
+    <p>Select the number of tickets you want to purchase</p>
+    <br />
+
+
+    <form asp-action="Confirm" asp-controller="Order" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group">
+            <label asp-for="Name">Package Name</label>
+            <input readonly="readonly" class="form-control" asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Location">Package Location </label>
+            <input readonly="readonly" class="form-control" asp-for="Location" />
+            <span asp-validation-for="Location"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input readonly="readonly" class="form-control" asp-for="Description" />
+            <span asp-validation-for="Description"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Price">Package Price per Ticket</label>
+            <input readonly="readonly" class="form-control" asp-for="Price" />
+            <span asp-validation-for="Price"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="NumPersons">Number of tickets</label>
+            <input class="form-control" asp-for="NumPersons" />
+            <span asp-validation-for="NumPersons"></span>
+        </div>
+
+        <input type="hidden" asp-for="TravelPackageId" />
+
+        <br />
+        <input class="btn btn-primary" type="submit" value="Next" />
+    </form>
+</div>
+<br />
+

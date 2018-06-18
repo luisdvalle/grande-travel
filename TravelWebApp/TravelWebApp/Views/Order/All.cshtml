@@ -1,0 +1,40 @@
+﻿@model OrderAllViewModel
+
+<br />
+<br />
+
+<hr class="featurette-divider">
+
+<div class="container">
+
+    <h2>Your Orders</h2>
+    <br />
+    <br />
+    <p>Total Orders: @Model.NumOrders</p>
+    <br />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Order Date</th>
+                <th scope="col">Tickets</th>
+                <th scope="col">Price per Package</th>
+                <th scope="col">Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model.Orders)
+            {
+                <tr>
+                    <td scope="row">@order.OrderDate</td>
+                    <td>@order.NumberPersons</td>
+                    <td>@order.ItemPrice</td>
+                    <td>@order.TotalPrice</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+</div>
+<br />
+

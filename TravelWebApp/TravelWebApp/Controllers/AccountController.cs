@@ -143,7 +143,7 @@ namespace TravelWebApp.Controllers
                 FirstName = profileDb.FirstName,
                 LastName = profileDb.LastName,
                 Email = (string.IsNullOrEmpty(user.Email)) ? "Enter your email address" : user.Email,
-                PhoneNumber = (string.IsNullOrEmpty(user.PhoneNumber)) ? "Enter your email address" : user.PhoneNumber,
+                PhoneNumber = (string.IsNullOrEmpty(user.PhoneNumber)) ? "Enter your phone number" : user.PhoneNumber,
                 ProfileId = profileDb.ProfileId
             };
 

@@ -11,8 +11,8 @@ using TravelWebApp.Services;
 namespace TravelWebApp.Migrations
 {
     [DbContext(typeof(GrandeTravelDbContext))]
-    [Migration("20180610022455_updatingRelationshipProfileTravelPackage")]
-    partial class updatingRelationshipProfileTravelPackage
+    [Migration("20180618143831_changingProfileTblMigration")]
+    partial class changingProfileTblMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -180,6 +180,28 @@ namespace TravelWebApp.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("TravelWebApp.Models.Order", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<double>("ItemPrice");
+
+                    b.Property<int>("NumberPersons");
+
+                    b.Property<DateTime>("OrderDate");
+
+                    b.Property<int>("ProfileId");
+
+                    b.Property<double>("TotalPrice");
+
+                    b.HasKey("OrderId");
+
+                    b.HasIndex("ProfileId");
+
+                    b.ToTable("Order");
+                });
+
             modelBuilder.Entity("TravelWebApp.Models.Profile", b =>
                 {
                     b.Property<int>("ProfileId")
@@ -267,6 +289,14 @@ namespace TravelWebApp.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser")
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("TravelWebApp.Models.Order", b =>
+                {
+                    b.HasOne("TravelWebApp.Models.Profile")
+                        .WithMany("Orders")
+                        .HasForeignKey("ProfileId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
